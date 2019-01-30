@@ -1,10 +1,3 @@
-# events-example0.py
-# Barebones timer, mouse, and keyboard events
-
-#NAME: Kush Mathur
-#ANDREW ID: kushagrm
-#SECTION: A
-
 from tkinter import *
 import random
 import copy
@@ -16,12 +9,6 @@ import copy
 # CONTROLLER:  event-handling functions and their helper functions
 ####################################
 
-
-####################################
-# customize these functions
-####################################
-
-# Initialize the data which will be used to draw on the screen.
 def init(data):
     # board data
     data.emptyColor = 'blue'
@@ -181,8 +168,6 @@ def removeFullRows(data):
     data.score += (fullRows ** 2)
 
 # These are the CONTROLLERs.
-# IMPORTANT: CONTROLLER does *not* draw at all!
-# It only modifies data according to the events.
 def mousePressed(event, data):
     # use event.x and event.y
     pass
@@ -219,8 +204,6 @@ def timerFired(data):
             data.isGameOver = True
     
 # This is the VIEW
-# IMPORTANT: VIEW does *not* modify data at all!
-# It only draws on the canvas.
 def redrawAll(canvas, data):
     if data.isGameOver:
         #Game Over Screen
@@ -280,14 +263,6 @@ def drawCell(canvas, data, row, col, color):
     canvas.create_rectangle(x0+data.border, y0+data.border, 
                             x1-data.border, y1-data.border,
                             fill = color)
-
-
-
-####################################
-####################################
-# use the run function as-is
-####################################
-####################################
 
 def run(width=300, height=300):
     def redrawAllWrapper(canvas, data):
